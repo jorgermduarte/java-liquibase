@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - logicalFilePath: liquibase/1.0.0/listings/create-table.yaml
+    changeSet:
+      id: "2022-02-23 12:01"
+      author: jorge-duarte
+      changes:
+        - createTable:
+            tableName: listings
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  valueComputed: LISTINGS_SEQ.nextval
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: pk_listings
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: enabled
+                  type: boolean
+                  constraints:
+                    nullable: false
+                    defaultValueBoolean: true

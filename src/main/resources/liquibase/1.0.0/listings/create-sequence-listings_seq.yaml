@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - logicalFilePath: liquibase/1.0.0/listings/create-sequence-listings_seq.yaml
+  - changeSet:
+      id: "2022-02-23 12:02"
+      author: jorge-duarte
+      changes:
+        - createSequence:
+            sequenceName: LISTINGS_SEQ
+            cacheSize: 5000
+            cycle: false
+            incrementBy: 20
+            ordered: true
+            startValue: 1
